@@ -1,0 +1,280 @@
+@import 'https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&display=swap';
+
+/* --- Animations & Utilities --- */
+.typo-Flow-caption {
+    font-family: 'Google Sans', sans-serif;
+}
+
+.typo-Flow-text {
+    font-family: 'Google Sans', sans-serif;
+    font-size: 1.8rem;
+    line-height: 1.5;
+}
+
+.typo-Flow-subtitle {
+    font-family: 'Google Sans', sans-serif;
+    font-size: 4.8rem;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+}
+
+.typo-Flow-description {
+    font-family: 'Google Sans', sans-serif;
+}
+
+[data-animate="fade-up"] {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 1s cubic-bezier(0.2, 0.0, 0, 1.0), transform 1s cubic-bezier(0.2, 0.0, 0, 1.0);
+    will-change: opacity, transform;
+}
+
+[data-animate="scale-up"] {
+    opacity: 0;
+    transform: scale(0.92);
+    transition: opacity 1.2s cubic-bezier(0.2, 0.0, 0, 1.0), transform 1.2s cubic-bezier(0.2, 0.0, 0, 1.0);
+    will-change: opacity, transform;
+}
+
+.animate-in {
+    opacity: 1 !important;
+    transform: none !important;
+}
+
+.delay-100 {
+    transition-delay: 0.1s;
+}
+
+.delay-200 {
+    transition-delay: 0.2s;
+}
+
+.delay-300 {
+    transition-delay: 0.3s;
+}
+
+.delay-400 {
+    transition-delay: 0.4s;
+}
+
+/* Sticky Navigation */
+.sticky-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 3rem;
+    background: rgba(0, 0, 0, 0.85);
+    /* Dark background as per image */
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    transform: translateY(-100%);
+    /* Hidden by default */
+    transition: transform 0.6s cubic-bezier(0.1, 0, 0, 1);
+    will-change: transform;
+}
+
+.sticky-nav.visible {
+    transform: translateY(0);
+    /* Slide down */
+}
+
+.sticky-nav-logo {
+    font-family: 'Google Sans', sans-serif;
+    font-size: 2rem;
+    font-weight: 500;
+    color: white;
+}
+
+.sticky-nav-links {
+    display: flex;
+    list-style: none;
+    gap: 3rem;
+    padding: 0;
+    margin: 0;
+}
+
+.sticky-nav-links a {
+    color: #9aa0a6;
+    /* Subdued text color */
+    text-decoration: none;
+    font-family: 'Google Sans', sans-serif;
+    font-size: 1.4rem;
+    transition: color 0.2s;
+}
+
+.sticky-nav-links a:hover,
+.sticky-nav-links a.active {
+    color: white;
+}
+
+.sticky-nav-icons {
+    display: flex;
+    align-items: center;
+}
+
+/* Feature Row (Legacy/Custom) */
+.feature-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 4rem;
+    padding: 6rem 10%;
+}
+
+.feature-row.reverse {
+    flex-direction: row-reverse;
+}
+
+.feature-text {
+    flex: 1;
+}
+
+.feature-text h3 {
+    font-size: 3.2rem;
+    margin-bottom: 1rem;
+    color: #fff;
+}
+
+.feature-text p {
+    font-size: 1.8rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.feature-image {
+    flex: 1;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.feature-image img {
+    width: 100%;
+    display: block;
+}
+
+/* Stats Section */
+.stats-section {
+    display: flex;
+    justify-content: space-around;
+    padding: 6rem 10%;
+    background: rgba(255, 255, 255, 0.05);
+    margin: 4rem 0;
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-number {
+    display: block;
+    font-size: 6rem;
+    font-weight: 700;
+    color: #fff;
+    background: linear-gradient(to right, #fff, #aaa);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Marquee Animation */
+@keyframes scroll-left {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+.stat-label {
+    font-size: 1.6rem;
+    color: rgba(255, 255, 255, 0.6);
+    margin-top: 0.5rem;
+    display: block;
+}
+
+/* Gallery Infinite Scroll & Layout */
+.gallery_gallery__gccP0 {
+    height: 100vh;
+    overflow: hidden;
+    background: #000;
+}
+
+.gallery_items__s42jn {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    height: 120%;
+    /* Taller to allow parallax movement without clipping */
+    margin-top: -10%;
+    padding: 0 5%;
+}
+
+.gallery_column__Q1Uug {
+    flex: 1;
+    position: relative;
+    /* Parallax transform will apply here via JS */
+}
+
+.gallery_columnInner__2mGXI {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    will-change: transform;
+}
+
+/* Infinite Scroll Animations */
+[data-direction="up"] {
+    animation: scroll-up 10s linear infinite;
+}
+
+[data-direction="down"] {
+    animation: scroll-down 10s linear infinite;
+}
+
+@keyframes scroll-up {
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(-50%);
+    }
+
+    /* Assumes content is duplicated */
+}
+
+@keyframes scroll-down {
+    0% {
+        transform: translateY(-50%);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+/* Ensure images fill width */
+.gallery_media__EUyD3 img {
+    width: 100%;
+    border-radius: 12px;
+    display: block;
+}
+
+.gallery_name__phfqE {
+    display: block;
+    text-align: center;
+    margin-top: 1rem;
+    font-size: 1.2rem;
+    color: #fff;
+    font-family: 'Google Sans', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+/* Self-Drawing Animations Removed as per user request */

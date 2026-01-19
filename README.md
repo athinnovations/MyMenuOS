@@ -1,2 +1,0 @@
-# MyMenuOS
-Self Ordering Systems
